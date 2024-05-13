@@ -1,0 +1,6 @@
+.logo-image {
+    max-width: 60px; /* Adjust the maximum width of the logo */
+    height: auto; /* Maintain aspect ratio */
+    transform: scale(2);
+    margin-left: 40px;
+  }

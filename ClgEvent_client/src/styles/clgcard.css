@@ -1,0 +1,81 @@
+/* clgcard.css */
+
+/* Styling for CollegeCard component */
+.card1 {
+  margin-bottom: 10px; /* Decrease margin bottom */
+  border: 1px solid rgba(0, 0, 0, 0.126);
+  border-radius: 0.25rem;
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1); /* Decrease box shadow */
+  min-width: 300px; /* Set minimum width for the card */
+  min-height: 100px;
+  perspective: 1000px; /* Add perspective for 3D effect */
+  position: relative; /* Ensure proper positioning */
+}
+
+.card-container1 {
+  display: flex;
+  justify-content: center;
+}
+
+.card1 .card-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden; /* Hide backface of the card */
+  transition: transform 0.8s; /* Add transition for flip effect */
+}
+
+.card1 .front {
+  z-index: 2;
+}
+
+.card1 .back {
+  transform: rotateY(180deg); /* Initially rotate back face */
+}
+
+.card1:hover .front {
+  transform: rotateY(-180deg); /* Rotate front face on hover */
+}
+
+.card1:hover .back {
+  transform: rotateY(0deg); /* Rotate back face on hover */
+}
+
+.card-body1 {
+  padding: 0.750rem; /* Decrease padding */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center items horizontally */
+}
+
+.card-title1 {
+  margin-bottom: 0.5rem; /* Decrease margin bottom */
+  font-size: 30px; /* Decrease font size */
+  font-weight: 500;
+  text-align: center; /* Center text */
+  padding: 10px;
+  color: rgb(240, 60, 147);
+}
+
+.centered-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#teams {
+  display: inline-block;
+  font-size: 30px; /* Decrease font size */
+  font-weight: 500;
+  color: rgb(21, 59, 183);
+  text-align: center;
+  user-select: none;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid transparent;
+  padding: 0.25rem 0.5rem; /* Decrease padding */
+  line-height: 1.5;
+  border-radius: 0.25rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}

@@ -1,0 +1,29 @@
+.college-records-container {
+    margin: 20px;
+}
+
+.event-list {
+    list-style: none;
+    padding: 0;
+}
+
+.event-item {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    transition: background-color 0.3s ease;
+}
+
+.event-item:hover {
+    background-color: #e0e0e0;
+}
+
+.college-records-container h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(25, 165, 160);
+    font-size: 50px;
+}

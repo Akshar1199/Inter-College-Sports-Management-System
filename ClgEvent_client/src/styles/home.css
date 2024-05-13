@@ -1,0 +1,291 @@
+/* Styles for the video container */
+.video-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Styles for the video player */
+.video-player {
+  width: 100%;
+  height: 100%;
+}
+
+/* Styles for the semi-transparent card overlay */
+.semi-transparent-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 80%; /* Adjust maximum width as needed */
+}
+
+/* Styles for the welcome text */
+.welcome-text {
+  color: #ffffff;
+  text-align: left;
+  font-size: 2.5vw; /* Responsive font size based on viewport width */
+  font-weight: bold;
+  max-width: 100%; /* Ensure text does not overflow */
+}
+
+/* Styles for the organizer and year text */
+.div2,
+.div1 {
+  display: flex;
+  align-items: center;
+}
+
+.div1 {
+  margin-top: 80%;
+}
+
+/* Styles for the college name */
+.clgname {
+  color: rgb(31, 142, 189);
+}
+
+/* Styles for the year */
+.year {
+  color: rgb(31, 142, 189);
+  margin-right: 5px; /* Adjust margin as needed */
+}
+
+/* Styles for the image container */
+.image-container {
+  position: relative;
+}
+
+/* Styles for the events history overlay */
+.events-hist {
+  position: absolute;
+  top: 10px; /* Adjust as needed */
+  left: 10px; /* Adjust as needed */
+  /* Add more styling as necessary */
+}
+
+/* Styles for the image */
+.hist {
+  width: 100%;
+  height: auto;
+}
+
+/* Styles for the college image */
+.clgimg {
+  width: 100%;
+  height: 20%;
+}
+
+
+/* Styles for the image overlay */
+.image-overlay {
+  position: relative;
+}
+
+/* Styles for the overlay text */
+.overlay-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 80%; /* Adjust maximum width */
+  max-height: 80%; /* Adjust maximum height */
+  overflow: auto; /* Enable scrolling if content exceeds max height */
+}
+
+/* Styles for another image overlay */
+.image-overlay1 {
+  position: relative;
+}
+
+/* Styles for another overlay text */
+.overlay-text1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  height: 250px;
+  width: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Styles for the separator */
+.sep {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  font-size: 40px;
+  color: rgb(48, 183, 158);
+  border-bottom: 2px solid rgb(48, 183, 158); /* Set border thickness */
+  padding: 20px; /* Add padding to create space around the content */
+}
+
+/* Styles for the college card */
+.college-card {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 5px; /* Decrease padding to reduce size */
+  margin: 0 2px; /* Adjust margin to reduce space between cards */
+  background-color: #f9f9f9;
+  max-width: 150px; /* Set maximum width */
+}
+
+/* Styles for the college slider */
+.college-slider {
+  width: 80%;
+  margin: 0 auto;
+  height: 400px; /* Set a fixed height for the slider container */
+  overflow-y: auto; /* Enable vertical scrolling */
+}
+
+/* Styles for the logo and slogan container */
+.logo-slogan-container {
+  text-align: center; /* Center align content */
+  margin-top: 50px; /* Adjust margin as needed */
+}
+
+/* Styles for the logo */
+.logo-image1 {
+  border-top: 2px solid rgb(48, 183, 158); /* Set border thickness */
+  display: block;
+  margin: 0 auto; /* Center horizontally */
+  max-width: 200px; /* Set maximum width for the logo */
+  height: auto; /* Maintain aspect ratio */
+}
+
+/* Styles for the slogan */
+.slogan {
+  font-size: 24px; /* Adjust font size as needed */
+  color: #a31111; /* Set color for the slogan */
+  margin-top: -60px; /* Adjust margin as needed */
+  font-weight: 500; /* Adjust font weight as needed */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); /* Add text shadow for depth */
+  animation: neonEffect 1.5s infinite alternate; /* Add neon effect animation */
+}
+
+@keyframes neonEffect {
+  0% {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+  }
+  100% {
+    text-shadow: 0px 0px 10px #a31111, 0px 0px 20px #ff2929, 0px 0px 30px #ff6b6b,
+      0px 0px 40px #ffaa7f, 0px 0px 50px #ffd8b8, 0px 0px 60px #ffe9cc,
+      0px 0px 70px #fffcf5;
+  }
+}
+
+/* Styles for the text columns container */
+.text-columns-container {
+  background-color: #53e2d9;
+  display: flex;
+  justify-content: center;
+  margin-top: 60px; /* Adjust margin as needed */
+}
+
+/* Styles for each column */
+.column1 {
+  margin-top: 50px;
+  flex: 1;
+  padding: 0 20px; /* Adjust padding as needed */
+  text-align: center; 
+}
+
+/* Styles for column headings */
+.column1 h3 {
+  margin-left: 30px;
+  color: #333;
+  font-size: 18px;
+}
+
+/* Styles for the links */
+.column1 h3 {
+  margin-left: 30px;
+  color: #333;
+  font-size: 25px;
+  font-weight: bold;
+  text-decoration: underline;
+  position: relative;
+}
+
+/* Remove list bullets */
+.column1 ul {
+  list-style-type: none;
+}
+
+.column1 ul li {
+  margin-bottom: 5px; /* Adjust margin as needed */
+}
+
+.column1 li{
+  font-size: 20px;
+}
+
+.column1 ul{
+  margin-top: 30px;
+}
+
+.column1 ul li a {
+  color: #666;
+  text-decoration: none;
+}
+
+.column1 ul li a:hover {
+  color: #000;
+  text-decoration: underline;
+}
+
+.connect-icons {
+  display: flex;
+  justify-content: center; /* Center the items horizontally */
+  margin-top: 10px; /* Adjust margin as needed */
+  margin-left: 30px;
+}
+
+.connect-icons a {
+  margin: 0 10px; /* Adjust spacing between icons */
+  color: #333; /* Adjust icon color */
+  font-size: 24px; /* Adjust icon size */
+}
+
+.connect-icons a:hover {
+  color: #007bff; /* Adjust icon color on hover */
+}
+
+#insta:hover{
+  color: rgb(255, 0, 0);
+}
+#linkedin:hover{
+  color: rgb(48, 48, 240);
+}
+#wp:hover{
+  color: rgb(6, 188, 6);
+}
+
+/* Styles for the list items */
+.column1 ul.icon-list li {
+  margin-bottom: 5px;
+}
+
+/* Styles for the links */
+.column1 ul.icon-list li a {
+  color: #000000;
+  text-decoration: none;
+  transition: color 0.3s, border-bottom 0.3s; /* Add transition effect */
+}
+
+/* Apply underline effect on hover */
+.column1 ul.icon-list li a:hover {
+  color: #05d40f;
+  border-bottom: 1px solid #000; /* Add underline */
+}

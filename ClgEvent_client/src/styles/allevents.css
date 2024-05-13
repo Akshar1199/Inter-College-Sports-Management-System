@@ -1,0 +1,52 @@
+/* allevents.css */
+
+.all-events{
+    padding: 20px;
+  }
+  
+  .bg{
+    background-color: aliceblue;
+    height: 100vh;
+  }
+
+  .all-events-heading {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .event-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 20px;
+  }
+  
+  .event-card-link {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .event-card {
+    background-size: cover;
+    background-position: center;
+    height: 200px; 
+    border: 1px solid #ddd; 
+    border-radius: 8px; 
+    overflow: hidden; 
+    position: relative;
+  }
+  
+  .event-card h2 {
+    color: #fff;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    font-size: 20px;
+    margin: 0;
+  }
+  
+  .event-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transform: scale(1.05);
+    transition: box-shadow 0.3s, transform 0.3s;
+  }
+  

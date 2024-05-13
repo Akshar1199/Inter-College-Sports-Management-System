@@ -1,0 +1,99 @@
+/* Styles for the slider container */
+.slider-container {
+  display: flex;
+  overflow-x: auto; /* Enable horizontal scrolling */
+  scroll-snap-type: x mandatory; /* Enable snapping to each slide */
+}
+
+/* Styles for each slider item */
+.slider-item {
+  flex: 0 0 auto; /* Let the items shrink or grow as needed */
+  scroll-snap-align: start; /* Ensure each slide starts at the beginning of the container */
+  width: 100%; /* Ensure each slide takes the full width of the container */
+  margin-right: 20px; /* Adjust margin between slides */
+}
+
+/* Event card styles */
+/* Styles for the event card */
+/* Event card styles */
+.event-card1 {
+  border-radius: 8px;
+  padding: 20px; /* Increase padding to increase card size */
+  min-width: 310px;
+  min-height: 360px;
+  margin: auto; /* Center the card horizontally */
+  overflow: hidden; /* Hide overflow */
+}
+
+
+/* Enable scrolling within the event card */
+.event-card:hover {
+  overflow: auto; /* Allow scrolling on hover */
+}
+
+/* Year styles */
+.event-year {
+  font-size: 20px;
+  color: #48c8eb;
+  margin-bottom: 10px;
+  margin-top: 100px;
+}
+
+/* College name styles */
+.college-name {
+  margin-top: 5px;
+  font-size: 20px;
+  color: #48c8eb;
+}
+
+/* Winner college styles */
+.winner-college {
+  font-size: 20px;
+  color: #48c8eb;
+  margin-top: 5px;
+}
+
+.winval{
+  color: #ef32e3;
+}
+
+.orgval{
+  color: #ef32e3;
+}
+
+.yearval{
+  color: #ef32e3;
+}
+
+/* Navigation buttons styles */
+.navigation-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.navigation-buttons button {
+  width: 40px; /* Set a fixed width */
+  height: 40px; /* Set a fixed height */
+  display: flex; /* Use flexbox */
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+  margin: 0 10px;
+  background-color: #fefefebe;
+  color: rgb(29, 144, 161);
+  border: none;
+  border-radius: 50%; /* Make the button circular */
+  cursor: pointer;
+}
+
+.navigation-buttons button:hover {
+  color: #96109bd3;
+  background-color: #fefefe; /* Change background color on hover */
+}
+
+/* Adjust size of arrows */
+.navigation-buttons button i {
+  font-size: 18px; /* Decrease font size for smaller arrows */
+}
+
+

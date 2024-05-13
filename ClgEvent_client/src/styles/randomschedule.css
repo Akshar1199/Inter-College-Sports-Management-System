@@ -1,0 +1,69 @@
+/* CSS for Scheduled Matches */
+.scheduled-matches-container {
+    margin-top: 20px;
+  }
+  
+  .scheduled-match {
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .scheduled-match h4 {
+    margin-bottom: 5px;
+  }
+  
+  .scheduled-match p {
+    margin: 0;
+  }
+  
+  .scheduled-match-details {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .scheduled-match-details span {
+    font-weight: bold;
+  }
+
+  .promoted-team-message {
+    margin-top: 20px;
+    background-color: #dff0d8;
+    border: 1px solid #c3e6cb;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 50px;
+  }
+  
+  .promoted-team-message p {
+    margin: 0;
+    color: #28a745;
+    font-weight: bold;
+  }
+
+  .participating-colleges-container {
+    margin-top: 20px;
+  }
+
+  .participating-colleges-container button{
+    margin-top: 20px;
+    margin-bottom: 50px;
+  }
+  
+  .participating-college {
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .participating-college h4 {
+    margin-bottom: 5px;
+  }
+  
+  .participating-college p {
+    margin: 0;
+  }
+  
+  
