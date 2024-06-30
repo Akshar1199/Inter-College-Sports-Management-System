@@ -20,7 +20,6 @@ const Requests = () => {
     })
       .then(response => response.json())
       .then(data => {
-        console.log('Request accepted:', data);
         window.location.reload();
       })
       .catch(error => console.error('Error accepting request:', error));
@@ -32,7 +31,6 @@ const Requests = () => {
     })
       .then(response => response.json())
       .then(data => {
-        console.log('Request declined:', data);
         window.location.reload();
       })
       .catch(error => console.error('Error declining request:', error));

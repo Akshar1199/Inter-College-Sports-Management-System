@@ -15,7 +15,7 @@ export default function Matches() {
           throw new Error('Failed to fetch events');
         }
         const data = await response.json();
-        console.log(data);
+
         setEvents(data.events);
       } catch (error) {
         console.error('Error fetching events:', error.message);

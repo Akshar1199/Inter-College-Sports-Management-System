@@ -9,6 +9,8 @@ const player = require("../../models/playerSchema");
 const Player = mongoose.model("Player", player);
 const matchSchema = require("../../models/matchSchema");
 const Match = mongoose.model("Match", matchSchema);
+const festOrganizerSchema = require("../../models/festOrganizerSchema");
+const Orgclg = mongoose.model("Orgclg", festOrganizerSchema);
 
 router.get("/getParticipatedclgNotScheduled/:eventId", async (req, res) => {
   const eventId = req.params.eventId;
@@ -140,7 +142,34 @@ router.post("/incrrnd", async (req, res) => {
 
 router.post("/getScheduledEvents", async (req, res) => {
   try {
+
     const matches = await Match.find({ event: { $exists: true } }, "event");
+
+    // Extract unique event IDs from the matches
+    const eventIds = matches.map((match) => match.event);
+
+    // Retrieve all events using the event IDs
+    const events = await event.find({ _id: { $in: eventIds } });
+
+    res.json({ events });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+router.post("/getPastScheduledEvents/:year", async (req, res) => {
+  const yr = req.params.year;
+  try {
+    const clg = await Orgclg.find({year : yr});
+    const events1 = await event.find({clg : clg.clg});
+    const eventIds1 = events1.map(event => event._id);
+    const matches = await Match.find({ 
+      $and: [
+        { event: { $exists: true } },
+        { event: { $in: eventIds1 } },
+      ]
+    }, "event");
 
     // Extract unique event IDs from the matches
     const eventIds = matches.map((match) => match.event);

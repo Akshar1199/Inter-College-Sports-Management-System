@@ -12,7 +12,6 @@ function ShowPlayers() {
     const [eventName, setEventName] = useState('');
 
     useEffect(() => {
-        console.log(state);
         setClgId(state.clgId);
         setClgName(state.clgName);
         setEventName(state.eventName);
