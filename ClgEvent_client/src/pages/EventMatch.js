@@ -55,12 +55,8 @@ export default function EventMatch() {
 
 
                 const data = await response.json();
-                console.log(data.matches);
-                // console.log(data.matches[3].winner ? true : false);
                 setMatches(data.matches);
                 setLen(data.matches.length);
-                console.log(isEnable)
-
                 // Initialize state for each match
                 const initialMatchStates = data.matches.map((m) => ({
                     winnerUpdated: (m.winner ? true : false),
@@ -93,7 +89,6 @@ export default function EventMatch() {
 
 
             const data = await response.json();
-            console.log(data)
             if (data.success) {
 
                 window.location.reload();
@@ -119,7 +114,6 @@ export default function EventMatch() {
     const YesClicked = (e, index) => {
         const matchState = matchStates[index];
         const name = e.target.name;
-        console.log(matchState)
 
 
         if (name === "clg1") {
@@ -167,7 +161,6 @@ export default function EventMatch() {
 
     const handleDateClick = (date) => {
         setSelectedDate(date);
-        console.log(isEnable);
 
         // const initialMatchStates2 = filteredMatches.map((m) => ({
         //     winnerUpdated: (m.winner ? true : false),
@@ -183,7 +176,6 @@ export default function EventMatch() {
 
     const handleScroll = (e) => {
         const element = e.target;
-        console.log(element.scrollTop);
     };
 
     const dates = [...new Set(matches.map(match => formatDate(match.match_date)))];

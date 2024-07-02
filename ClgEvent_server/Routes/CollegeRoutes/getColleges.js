@@ -33,11 +33,11 @@ router.post("/getOrganizeCollege", async (req, res) => {
     }
 });
 
-router.post("/getClgDetails/:userid", async (req, res) => {
+router.post("/getClgDetails/:clgid", async (req, res) => {
     try {
-        let userid = req.params.userid;
+        let clgid = req.params.clgid;
         // console.log(userid);
-        const clg = await Clg.findById(userid);
+        const clg = await Clg.findById(clgid);
         // console.log(clg)
         res.json({ clg: clg });
     } catch (error) {

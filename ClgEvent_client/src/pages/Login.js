@@ -64,7 +64,6 @@ export default function Login() {
         window.alert("You Are still under Verification! please keep Patience  :)");
       } else if (res.status === 200) {
         window.alert("Login Successful!");
-        // console.log(data)
         localStorage.setItem("authToken", data.authToken);
         navigate("/Home");
       } else if (res.status === 201) {

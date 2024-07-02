@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import "../styles/eventhist.css"; // Import your CSS file
+import {useNavigate } from "react-router-dom";
 
 export default function EventsHist() {
   const [eventHist, setEventHist] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
-
+  const navigate = useNavigate();
+  
   useEffect(() => {
     const fetchEventHistDetails = async () => {
       try {
@@ -42,11 +44,13 @@ export default function EventsHist() {
     );
   };
 
-
+  const handleClick = () => {
+    navigate(`/Home/year_records/${eventHist[currentIndex]?.year}`)
+  };
 
   return (
     <div className="event-container">
-      <div className="event-card1">
+      <div className="event-card1" onClick={handleClick}>
         <h1 className="event-year">
           Year:{" "}
           <div className="yearval">{eventHist[currentIndex]?.year}</div>

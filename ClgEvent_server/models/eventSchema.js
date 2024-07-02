@@ -15,6 +15,10 @@ const eventSchema = new schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'clg',
    },
+   winner : {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'clg',
+   },
 });
 
 

@@ -24,6 +24,7 @@ import Leaderboard from "./pages/Leaderboard";
 import CollegeRecords from "./pages/CollegeRecords";
 import ClgGames from "./pages/ClgGames";
 import RandomSchedule from "./pages/RandomSchedule";
+import YearRecords from "./pages/YearRecords";
 
 const router = createBrowserRouter([
   {
@@ -110,6 +111,15 @@ const router = createBrowserRouter([
           }
         ]
         
+      },
+      {
+        path: 'year_records/:year',
+        children : [
+          {
+            index : true,
+            element: <YearRecords></YearRecords>
+          }
+        ]
       },
       {
         path: 'matches',
