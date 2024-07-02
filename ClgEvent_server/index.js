@@ -26,10 +26,10 @@ app.use((req, res,next)=>{
   )
   next();
 })
-
+  
 app.use(express.json())
-
-app.use('/clg', require("../ClgEvent_server/Routes/CollegeRoutes/CreateUser"))
+ 
+app.use('/clg', require("./Routes/CollegeRoutes/CreateUser"))
 app.use('/clg', require("./Routes/CollegeRoutes/eventDetails"))
 app.use('/clg', require("./Routes/CollegeRoutes/userUpdate"))
 app.use('/clg', require("./Routes/CollegeRoutes/getColleges"))

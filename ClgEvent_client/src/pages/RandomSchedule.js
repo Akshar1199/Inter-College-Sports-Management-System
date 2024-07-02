@@ -104,6 +104,26 @@ export default function RandomSchedule() {
     }
   };
 
+  const incrementCollegePoints = async (collegeId) => {
+    try {
+      const response = await fetch("http://localhost:5000/clg/incrementPoints", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ collegeId }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to increment college points");
+      }
+
+      console.log("College points incremented successfully");
+    } catch (error) {
+      console.error("Error incrementing college points:", error.message);
+    }
+  };
+
   function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
@@ -154,6 +174,8 @@ export default function RandomSchedule() {
         message = `Team ${oddTeam.clg_name} has been promoted!`;
       }
       setPromotedTeamMessage(message);
+
+      await incrementCollegePoints(oddTeam._id);
     }
       const scheduledMatches = [];
       for (let i = 0; i < matchesToSchedule; i++) {
@@ -163,7 +185,7 @@ export default function RandomSchedule() {
           event: selectedEvent._id,
           matchDate: formData.matchDate,
           time: formData.time,
-          round: selectedRound, // Use selectedRound instead of rounds
+          round: selectedRound, 
         };
         scheduledMatches.push(match);
       }
@@ -192,7 +214,6 @@ export default function RandomSchedule() {
   };
 
   function getCollegeName(collegeId) {
-    // Implement a function to retrieve college name from state or fetch it from backend based on college ID
     const college = participatingColleges.find(
       (college) => college._id === collegeId
     );

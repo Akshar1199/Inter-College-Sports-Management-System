@@ -64,7 +64,7 @@ const UserProfile = () => {
     const handleVerifyOTP = async () => {
         if (otp === userOTP) {
             try {
-                const response = await fetch('http://localhost:5000/clg/userUpdate', {
+                const response = await fetch('http://localhost:5000//update-profile', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',

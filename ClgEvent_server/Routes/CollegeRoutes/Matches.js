@@ -11,6 +11,25 @@ const clgStatSchema = require("../../models/clgStatSchema");
 const ClgStat = mongoose.model("ClgStat", clgStatSchema);
 const axios = require("axios");
 
+router.post("/incrementPoints", async (req, res) => {
+    const { collegeId } = req.body;
+
+    try {
+        const college = await Clg.findById(collegeId);
+        if (!college) {
+            return res.status(404).json({ message: "College not found" });
+        }
+
+        college.points += 1;
+        await college.save();
+
+        res.status(200).json({ message: "College points incremented successfully" });
+    } catch (err) {
+        console.log(err);
+        res.status(500).json({ message: "Error incrementing college points" });
+    }
+});
+
 router.post("/getMatches/:eventId", async (req, res) => {
     try {
         const eventId = req.params.eventId;
