@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
-const collageSchema = require("../../models/collageSchema"); // Replace with your actual schema path
+const collageSchema = require("../../models/collageSchema"); 
 const Clg = mongoose.model("Clg", collageSchema);
 const Event = require("../../models/eventSchema");
 const event = mongoose.model("event", Event);
@@ -11,24 +11,6 @@ const clgStatSchema = require("../../models/clgStatSchema");
 const ClgStat = mongoose.model("ClgStat", clgStatSchema);
 const axios = require("axios");
 
-router.post("/incrementPoints", async (req, res) => {
-    const { collegeId } = req.body;
-
-    try {
-        const college = await Clg.findById(collegeId);
-        if (!college) {
-            return res.status(404).json({ message: "College not found" });
-        }
-
-        college.points += 1;
-        await college.save();
-
-        res.status(200).json({ message: "College points incremented successfully" });
-    } catch (err) {
-        console.log(err);
-        res.status(500).json({ message: "Error incrementing college points" });
-    }
-});
 
 router.post("/getMatches/:eventId", async (req, res) => {
     try {

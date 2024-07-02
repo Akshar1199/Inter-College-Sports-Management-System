@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
-const collageSchema = require("../../models/collageSchema"); // Replace with your actual schema path
+const collageSchema = require("../../models/collageSchema");
 const Clg = mongoose.model("Clg", collageSchema);
 const Event = require("../../models/eventSchema");
 const event = mongoose.model("event", Event);
@@ -11,6 +11,9 @@ const matchSchema = require("../../models/matchSchema");
 const Match = mongoose.model("Match", matchSchema);
 const festOrganizerSchema = require("../../models/festOrganizerSchema");
 const Orgclg = mongoose.model("Orgclg", festOrganizerSchema);
+const clgStatSchema = require("../../models/clgStatSchema");
+const ClgStat = mongoose.model("ClgStat", clgStatSchema);
+
 
 router.get("/getParticipatedclgNotScheduled/:eventId", async (req, res) => {
   const eventId = req.params.eventId;
@@ -62,7 +65,7 @@ router.get("/getClgsParticipated/:eventId/:round", async (req, res) => {
     } else {
       const matches = await Match.find({
         event: eventId,
-        round: (parseInt(round) - 1) ,
+        round: (parseInt(round) - 1),
       }).select("winner");
       // console.log(matches)
       const winners = matches.map((match) => match.winner);
@@ -121,23 +124,49 @@ router.post("/schedulematches2", async (req, res) => {
 
 router.post("/incrrnd", async (req, res) => {
   const { eventId, oddTeamId, rnd, match_date, time } = req.body;
-  
 
-    const match = new Match({
-      clg1: oddTeamId,
-      clg2: null,
-      event: eventId,
-      match_date: match_date,
-      time: time,
-      winner: oddTeamId,
-      round: rnd,
+
+  const match = new Match({
+    clg1: oddTeamId,
+    clg2: null,
+    event: eventId,
+    match_date: match_date,
+    time: time,
+    winner: oddTeamId,
+    round: rnd,
+  });
+  match.save();
+
+  const clgstatexist = await ClgStat.findOne({
+    clg: clg1,
+    event: match.event,
+  });
+
+  if (clgstatexist) {
+    clgstatexist.wins = clgstatexist.wins + 1;
+  }
+  else {
+    const response1 = await axios.post(
+        "http://localhost:5000/clg/getOrganizeCollege"
+    );
+    const collegeInfo1 = response1.data.clg;
+    const clgstat1 = new ClgStat({
+        clg: winner,
+        event: match.event,
+        wins: 1,
+        loses: 0,
+        total_matches: 1,
+        org_clg: collegeInfo1._id,
     });
-    match.save();
-    res.json({
-      success: true,
-      message: "Round incremented for the odd team",
-      match,
-    });
+
+    await clgstat1.save();
+}
+
+  res.json({
+    success: true,
+    message: "Round incremented for the odd team",
+    match,
+  });
 });
 
 router.post("/getScheduledEvents", async (req, res) => {
@@ -161,10 +190,10 @@ router.post("/getScheduledEvents", async (req, res) => {
 router.post("/getPastScheduledEvents/:year", async (req, res) => {
   const yr = req.params.year;
   try {
-    const clg = await Orgclg.find({year : yr});
-    const events1 = await event.find({clg : clg.clg});
+    const clg = await Orgclg.find({ year: yr });
+    const events1 = await event.find({ clg: clg.clg });
     const eventIds1 = events1.map(event => event._id);
-    const matches = await Match.find({ 
+    const matches = await Match.find({
       $and: [
         { event: { $exists: true } },
         { event: { $in: eventIds1 } },

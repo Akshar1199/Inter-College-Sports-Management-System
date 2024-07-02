@@ -103,25 +103,6 @@ export default function RandomSchedule() {
     }
   };
 
-  const incrementCollegePoints = async (collegeId) => {
-    try {
-      const response = await fetch("http://localhost:5000/clg/incrementPoints", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ collegeId }),
-      });
-
-      if (!response.ok) {
-        throw new Error("Failed to increment college points");
-      }
-
-      console.log("College points incremented successfully");
-    } catch (error) {
-      console.error("Error incrementing college points:", error.message);
-    }
-  };
 
   function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -174,7 +155,6 @@ export default function RandomSchedule() {
       }
       setPromotedTeamMessage(message);
 
-      await incrementCollegePoints(oddTeam._id);
     }
       const scheduledMatches = [];
       for (let i = 0; i < matchesToSchedule; i++) {
